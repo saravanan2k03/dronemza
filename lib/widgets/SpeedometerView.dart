@@ -1,8 +1,9 @@
 import 'package:drone/constant/const.dart';
+import 'package:drone/widgets/Speedometerwidget.dart';
 import 'package:flutter/material.dart';
 
-class MapViewData extends StatelessWidget {
-  const MapViewData({
+class SpeedometerView extends StatelessWidget {
+  const SpeedometerView({
     super.key,
   });
 
@@ -25,29 +26,12 @@ class MapViewData extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Container(
-              width: width(context, 0.20),
-              height: height(context, 0.30),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              // child: ClipRRect(
-              //   borderRadius: BorderRadius.circular(15),
-              //   child: Image.asset(
-              //     "images/dronemock.png",
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
-            ),
+          const Speedo(),
+          SizedBox(
+            width: width(context, 0.010),
           ),
           SizedBox(
-            width: width(context, 0.02),
-          ),
-          Container(
-            height: height(context, 0.30),
+            height: height(context, 0.35),
             width: width(context, 0.09),
             // color: Colors.red,
             child: Column(

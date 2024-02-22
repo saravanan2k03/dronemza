@@ -1,7 +1,7 @@
 import 'package:drone/constant/const.dart';
 import 'package:drone/widgets/AltitudeController.dart';
 import 'package:drone/widgets/CameraLiveFeed.dart';
-import 'package:drone/widgets/MapView.dart';
+import 'package:drone/widgets/SpeedometerView.dart';
 import 'package:flutter/material.dart';
 
 class Visualization extends StatefulWidget {
@@ -34,7 +34,7 @@ class _VisualizationState extends State<Visualization> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const MapViewData(),
+              const SpeedometerView(),
               SizedBox(
                 width: width(context, 0.01),
               ),

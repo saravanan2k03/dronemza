@@ -231,16 +231,19 @@ class _AltitudeControllerState extends State<AltitudeController> {
             SizedBox(
               height: height(context, 0.02),
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                customCircleButton(name: "LO"),
-                customCircleButton(
-                  name: "LA",
+                InkWell(
+                  onTap: () {},
+                  child: const customCircleButton(name: "F"),
                 ),
                 customCircleButton(
-                  name: "PA",
+                  name: "H",
+                ),
+                customCircleButton(
+                  name: "P",
                 ),
               ],
             ),
