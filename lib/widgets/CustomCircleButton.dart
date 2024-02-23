@@ -10,32 +10,49 @@ class customCircleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width(context, 0.07),
-      height: height(context, 0.07),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 47, 46, 46),
-        shape: BoxShape.circle,
-        border: Border.all(width: 2.0, color: Colors.black),
-        boxShadow: [
-          BoxShadow(
-            color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.3),
-            spreadRadius: 0,
-            blurRadius: 05,
-            offset: const Offset(0, 2),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          width: width(context, 0.07),
+          height: height(context, 0.07),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  spreadRadius: 2,
+                  blurRadius: 8,
+                  color: Color.fromRGBO(33, 33, 33, 0.298))
+            ],
+            color: const Color.fromARGB(255, 60, 60, 62),
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment(0.8, 1),
+              colors: <Color>[
+                Color.fromARGB(255, 66, 66, 68),
+                Color.fromARGB(255, 48, 48, 50),
+              ], // Gradient from https://learnui.design/tools/gradient-generator.html
+              tileMode: TileMode.mirror,
+            ),
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            name,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 17, fontWeight: FontWeight.w600),
+        ),
+        CircleAvatar(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                name,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
           ),
-        ],
-      ),
+          radius: 22,
+          backgroundColor: const Color.fromARGB(255, 60, 60, 62),
+        )
+      ],
     );
   }
 }

@@ -26,6 +26,7 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('Camera Stream'),
       ),
@@ -33,8 +34,14 @@ class _CameraScreenState extends State<CameraScreen> {
         stream: channel.stream,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            imageBytes = snapshot.data as List<int>;
-            return Image.memory(Uint8List.fromList(imageBytes));
+            imageBytes = snapshot.data;
+            return Center(
+              child: Image.memory(
+                Uint8List.fromList(imageBytes),
+                gaplessPlayback: true,
+                excludeFromSemantics: true,
+              ),
+            );
           } else {
             return Center(
               child: CircularProgressIndicator(),

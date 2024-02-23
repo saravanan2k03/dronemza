@@ -92,7 +92,7 @@ class _MenuWidgetState extends State<MenuWidget> {
             ),
             CustomIconWidget(
               icon: Icon(
-                Icons.flag_rounded,
+                Icons.info_outline,
                 color: Colors.white,
               ),
             ),
