@@ -38,6 +38,7 @@ dependencies:
   lottie: ^3.0.0
   web_socket_channel: ^2.4.0
   syncfusion_flutter_gauges: ^24.2.7
+  firebase_core: ^2.25.5
 
 dev_dependencies:
   flutter_test:

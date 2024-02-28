@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79984165965",
+    "project_id": "angrybirdpro-50d0e",
+    "storage_bucket": "angrybirdpro-50d0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79984165965:android:a6936d8ef471eb7a2a8804",
+        "android_client_info": {
+          "package_name": "com.example.drone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBJqNpqr_AyU-0NinN7VLYHtznJXLATXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
