@@ -82,7 +82,7 @@ class SpeedometerView extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 ),
                 const Text(
-                  "05:30 AM",
+                  "00:30",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 17,
@@ -101,72 +101,75 @@ class SpeedometerView extends StatelessWidget {
           ),
           SizedBox(
             height: height(context, 0.35),
-            width: width(context, 0.10),
+            width: width(context, 0.12),
             // color: Colors.red,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: height(context, 0.03),
-                ),
-                const Text(
-                  "Latitude",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-                const Text(
-                  "20 Km/hr",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: height(context, 0.03),
-                ),
-                const Text(
-                  "Lantitude",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-                const Text(
-                  "80m",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: height(context, 0.03),
-                ),
-                const Text(
-                  "Location",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  width: width(context, 0.1),
-                  height: height(context, 0.03),
-                  child: const Text(
-                    "Ponnamaravathy",
+            child: Padding(
+              padding: const EdgeInsets.only(left: 05),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: height(context, 0.03),
+                  ),
+                  const Text(
+                    "Latitude",
                     style: TextStyle(
-                        overflow: TextOverflow.ellipsis,
+                        color: Colors.grey,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const Text(
+                    "20 Km/hr",
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 17,
                         fontWeight: FontWeight.bold),
                   ),
-                ),
-                SizedBox(
-                  height: height(context, 0.03),
-                ),
-              ],
+                  SizedBox(
+                    height: height(context, 0.03),
+                  ),
+                  const Text(
+                    "Longitude",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const Text(
+                    "80m",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: height(context, 0.03),
+                  ),
+                  const Text(
+                    "Location",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    width: width(context, 0.1),
+                    height: height(context, 0.03),
+                    child: const Text(
+                      "Ponnamaravathy",
+                      style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: height(context, 0.03),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
@@ -174,10 +177,11 @@ class SpeedometerView extends StatelessWidget {
             height: height(context, 0.25),
             width: width(context, 0.001),
           ),
-          Column(
+          const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomJoystick(),
                 ],

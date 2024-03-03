@@ -15,8 +15,8 @@ class _CustomJoystickState extends State<CustomJoystick> {
       alignment: Alignment.center,
       children: [
         Container(
-          width: width(context, 0.22),
-          height: height(context, 0.22),
+          width: width(context, 0.20),
+          height: height(context, 0.20),
           decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(

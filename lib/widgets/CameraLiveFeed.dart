@@ -1,11 +1,21 @@
+import 'dart:typed_data';
+
 import 'package:drone/constant/const.dart';
 import 'package:flutter/material.dart';
+import 'package:web_socket_channel/io.dart';
 
-class CameraLiveFeed extends StatelessWidget {
+class CameraLiveFeed extends StatefulWidget {
   const CameraLiveFeed({
     super.key,
   });
 
+  @override
+  State<CameraLiveFeed> createState() => _CameraLiveFeedState();
+}
+
+class _CameraLiveFeedState extends State<CameraLiveFeed> {
+  late final channel = IOWebSocketChannel.connect('ws://192.168.203.172:8765');
+  late List<int> imageBytes = [];
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -27,12 +37,29 @@ class CameraLiveFeed extends StatelessWidget {
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(25),
-            child: Image.asset(
-              "images/DroneMockpic.jpeg",
-              fit: BoxFit.fill,
-            ),
-          ),
+              borderRadius: BorderRadius.circular(25),
+              child: StreamBuilder(
+                  stream: channel.stream,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      imageBytes = snapshot.data;
+                      return Image.memory(
+                        Uint8List.fromList(imageBytes),
+                        gaplessPlayback: true,
+                        excludeFromSemantics: true,
+                        fit: BoxFit.cover,
+                      );
+                    }
+                    if (!snapshot.hasData) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  })),
         ),
         Positioned(
             child: Container(
@@ -48,5 +75,11 @@ class CameraLiveFeed extends StatelessWidget {
         )),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    channel.sink.close();
+    super.dispose();
   }
 }

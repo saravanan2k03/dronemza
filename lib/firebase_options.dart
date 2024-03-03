@@ -53,6 +53,16 @@ class DefaultFirebaseOptions {
     measurementId: 'G-R7YPEXLDGE',
   );
 
+  static const FirebaseOptions desk = FirebaseOptions(
+    apiKey: 'AIzaSyBC_Y5UbvgIvJK7dNJv8UnwakwkdDnfKOw',
+    appId: '1:79984165965:web:ea3657c70e1054592a8804',
+    messagingSenderId: '79984165965',
+    projectId: 'angrybirdpro-50d0e',
+    authDomain: 'angrybirdpro-50d0e.firebaseapp.com',
+    storageBucket: 'angrybirdpro-50d0e.appspot.com',
+    measurementId: 'G-R7YPEXLDGE',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDBJqNpqr_AyU-0NinN7VLYHtznJXLATXE',
     appId: '1:79984165965:android:a6936d8ef471eb7a2a8804',

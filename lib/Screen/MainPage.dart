@@ -1,6 +1,9 @@
 import 'package:drone/Screen/Visualization.dart';
+import 'package:drone/constant/const.dart';
+import 'package:drone/controller/MenuwidgetController.dart';
 import 'package:drone/widgets/MenuWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -10,6 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final MenuWidgetController controller = Get.put(MenuWidgetController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +28,13 @@ class _MainPageState extends State<MainPage> {
             ),
           )),
           Expanded(
-            flex: 20,
-            child: Container(
-                color: const Color.fromARGB(234, 0, 0, 0),
-                child: Visualization()),
-          )
+              flex: 20,
+              child: Obx(
+                () => Container(
+                  color: const Color.fromARGB(234, 0, 0, 0),
+                  child: pages[controller.index.value],
+                ),
+              )),
         ],
       ),
     );

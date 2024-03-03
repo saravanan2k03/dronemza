@@ -1,6 +1,8 @@
 import 'package:drone/constant/const.dart';
+import 'package:drone/controller/SpeedometerController.dart';
 import 'package:drone/widgets/CustomCircleButton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class AltitudeController extends StatefulWidget {
@@ -13,6 +15,7 @@ class AltitudeController extends StatefulWidget {
 }
 
 class _AltitudeControllerState extends State<AltitudeController> {
+  final SpeedometerController controller = Get.put(SpeedometerController());
   var val = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -217,12 +220,13 @@ class _AltitudeControllerState extends State<AltitudeController> {
                     // color: Colors.blueAccent,
                     child: Slider(
                         min: 0.0,
-                        max: 270,
+                        max: 140,
                         value: val,
                         onChanged: (value) {
                           setState(() {
                             val = value;
                           });
+                          controller.changeSpeed(RxDouble(value));
                         }),
                   ),
                 ],
