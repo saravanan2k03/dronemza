@@ -1,4 +1,3 @@
-import 'package:drone/Screen/Visualization.dart';
 import 'package:drone/constant/const.dart';
 import 'package:drone/controller/MenuwidgetController.dart';
 import 'package:drone/widgets/MenuWidget.dart';
@@ -20,13 +19,14 @@ class _MainPageState extends State<MainPage> {
       body: Row(
         children: [
           Expanded(
-              child: Container(
-            color: const Color.fromARGB(244, 20, 22, 27),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: MenuWidget(),
+            child: Container(
+              color: const Color.fromARGB(244, 20, 22, 27),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: MenuWidget(),
+              ),
             ),
-          )),
+          ),
           Expanded(
               flex: 20,
               child: Obx(
