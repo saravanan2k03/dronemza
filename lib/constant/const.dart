@@ -1,4 +1,3 @@
-import 'package:drone/Screen/MainPage.dart';
 import 'package:drone/Screen/Visualization.dart';
 import 'package:drone/Screen/RequestPage.dart';
 import 'package:flutter/material.dart';
