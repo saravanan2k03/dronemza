@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:drone/constant/const.dart';
+import 'package:drone/views/constant/const.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 

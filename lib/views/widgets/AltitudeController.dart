@@ -1,6 +1,6 @@
-import 'package:drone/constant/const.dart';
+import 'package:drone/views/constant/const.dart';
 import 'package:drone/controller/SpeedometerController.dart';
-import 'package:drone/widgets/CustomCircleButton.dart';
+import 'package:drone/views/widgets/CustomCircleButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

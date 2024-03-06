@@ -1,4 +1,4 @@
-import 'package:drone/Screen/MainPage.dart';
+import 'package:drone/views/Screen/MainPage.dart';
 import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';

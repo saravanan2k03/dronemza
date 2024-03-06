@@ -1,5 +1,5 @@
-import 'package:drone/Screen/Visualization.dart';
-import 'package:drone/Screen/RequestPage.dart';
+import 'package:drone/views/Screen/Visualization.dart';
+import 'package:drone/views/Screen/RequestPage.dart';
 import 'package:flutter/material.dart';
 
 import '../Screen/add_disaster.dart';

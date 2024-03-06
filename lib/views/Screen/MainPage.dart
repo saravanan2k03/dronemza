@@ -1,6 +1,6 @@
-import 'package:drone/constant/const.dart';
+import 'package:drone/views/constant/const.dart';
 import 'package:drone/controller/MenuwidgetController.dart';
-import 'package:drone/widgets/MenuWidget.dart';
+import 'package:drone/views/widgets/MenuWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

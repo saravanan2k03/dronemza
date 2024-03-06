@@ -1,6 +1,6 @@
-import 'package:drone/constant/const.dart';
-import 'package:drone/widgets/CustomJoyStick.dart';
-import 'package:drone/widgets/Speedometerwidget.dart';
+import 'package:drone/views/constant/const.dart';
+import 'package:drone/views/widgets/CustomJoyStick.dart';
+import 'package:drone/views/widgets/Speedometerwidget.dart';
 import 'package:flutter/material.dart';
 
 class SpeedometerView extends StatelessWidget {

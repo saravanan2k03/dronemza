@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-import '../controller/SpeedometerController.dart';
+import '../../controller/SpeedometerController.dart';
 
 class Speedo extends StatefulWidget {
   const Speedo({super.key});

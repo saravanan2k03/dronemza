@@ -1,7 +1,7 @@
-import 'package:drone/constant/const.dart';
-import 'package:drone/widgets/AltitudeController.dart';
-import 'package:drone/widgets/CameraLiveFeed.dart';
-import 'package:drone/widgets/SpeedometerView.dart';
+import 'package:drone/views/constant/const.dart';
+import 'package:drone/views/widgets/AltitudeController.dart';
+import 'package:drone/views/widgets/CameraLiveFeed.dart';
+import 'package:drone/views/widgets/SpeedometerView.dart';
 import 'package:flutter/material.dart';
 
 class Visualization extends StatefulWidget {
