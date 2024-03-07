@@ -243,10 +243,10 @@ class _AltitudeControllerState extends State<AltitudeController> {
                   onTap: () {},
                   child: const customCircleButton(name: "F"),
                 ),
-                customCircleButton(
+                const customCircleButton(
                   name: "H",
                 ),
-                customCircleButton(
+                const customCircleButton(
                   name: "P",
                 ),
               ],
