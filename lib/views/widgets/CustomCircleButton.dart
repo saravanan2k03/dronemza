@@ -16,14 +16,14 @@ class customCircleButton extends StatelessWidget {
         Container(
           width: width(context, 0.07),
           height: height(context, 0.07),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(
                   spreadRadius: 2,
                   blurRadius: 8,
                   color: Color.fromRGBO(33, 33, 33, 0.298))
             ],
-            color: const Color.fromARGB(255, 60, 60, 62),
+            color: Color.fromARGB(255, 60, 60, 62),
             shape: BoxShape.circle,
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -37,6 +37,8 @@ class customCircleButton extends StatelessWidget {
           ),
         ),
         CircleAvatar(
+          radius: 22,
+          backgroundColor: const Color.fromARGB(255, 60, 60, 62),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -49,8 +51,6 @@ class customCircleButton extends StatelessWidget {
               ),
             ],
           ),
-          radius: 22,
-          backgroundColor: const Color.fromARGB(255, 60, 60, 62),
         )
       ],
     );

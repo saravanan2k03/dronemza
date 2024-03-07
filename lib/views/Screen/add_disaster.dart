@@ -1,8 +1,7 @@
 import 'package:drone/views/constant/const.dart';
-
-import 'package:drone/views/Screen/RequestPage.dart';
+import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../widgets/container.dart';
 import '../widgets/textfield.dart';
 
@@ -13,6 +12,7 @@ class add extends StatefulWidget {
   State<add> createState() => _addState();
 }
 
+// ignore: camel_case_types
 class _addState extends State<add> {
   final name = TextEditingController();
   final location = TextEditingController();
@@ -101,52 +101,33 @@ class _addState extends State<add> {
                   ),
                 ),
                 SizedBox(height: height(context, 0.05)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      height: height(context, 0.06),
-                      width: width(context, 0.1),
-                      child: MaterialButton(
-                          color: Colors.green,
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const RequestPage()));
-                          },
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text("Register",
-                                  style: TextStyle(color: Colors.white)),
-                              Icon(Icons.app_registration,
-                                  color: Color.fromARGB(255, 255, 255, 255))
-                            ],
-                          )),
-                    ),
-                    SizedBox(
-                      height: height(context, 0.06),
-                      width: width(context, 0.1),
-                      child: MaterialButton(
-                          color: Colors.green,
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const RequestPage()));
-                          },
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text("View Registration",
-                                  style: TextStyle(color: Colors.white)),
-                              Icon(Icons.app_registration,
-                                  color: Color.fromARGB(255, 255, 255, 255))
-                            ],
-                          )),
-                    ),
-                  ],
+                SizedBox(
+                  height: height(context, 0.06),
+                  width: width(context, 0.1),
+                  child: MaterialButton(
+                      color: Colors.green,
+                      onPressed: () {
+                        var ref = Firestore.instance
+                            .collection('user')
+                            .document('doc');
+                        ref.create({
+                          "hello": "hello",
+                        }).whenComplete(
+                          () => Get.snackbar(
+                            "completed",
+                            "Value Inserted",
+                          ),
+                        );
+                      },
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text("Register",
+                              style: TextStyle(color: Colors.white)),
+                          Icon(Icons.app_registration,
+                              color: Color.fromARGB(255, 255, 255, 255))
+                        ],
+                      )),
                 )
               ],
             )),

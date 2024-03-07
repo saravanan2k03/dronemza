@@ -1,8 +1,10 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
-
 class customcontainer extends StatelessWidget {
-  const customcontainer({this.width, this.height, this.child, this.color});
+  const customcontainer(
+      {super.key, this.width, this.height, this.child, this.color});
   final width;
   final height;
   final child;
