@@ -1,0 +1,23 @@
+class MyModel {
+  final String id;
+  final String name;
+  final int age;
+
+  MyModel({required this.id, required this.name, required this.age});
+
+  factory MyModel.fromSnapshot(DocumentSnapshot snapshot) {
+    final data = snapshot.data() as Map<String, dynamic>;
+    return MyModel(
+      id: snapshot.id,
+      name: data['name'],
+      age: data['age'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'age': age,
+    };
+  }
+}

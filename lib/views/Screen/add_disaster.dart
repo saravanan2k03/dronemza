@@ -1,7 +1,7 @@
 import 'package:drone/views/constant/const.dart';
-import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controller/AddDisasterController.dart';
 import '../widgets/container.dart';
 import '../widgets/textfield.dart';
 
@@ -14,13 +14,7 @@ class add extends StatefulWidget {
 
 // ignore: camel_case_types
 class _addState extends State<add> {
-  final name = TextEditingController();
-  final location = TextEditingController();
-  final mobile = TextEditingController();
-  final dis_type = TextEditingController();
-  final loc_type = TextEditingController();
-  final mission = TextEditingController();
-
+  final AddDisasterController controller = Get.put(AddDisasterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,13 +50,13 @@ class _addState extends State<add> {
                           width: width(context, 0.3),
                           child: SizedBox(
                             width: 20,
-                            child: customtextfield(
-                                context, "Person Name", name, Icons.person),
+                            child: customtextfield(context, "Person Name",
+                                controller.personName.value, Icons.person),
                           )),
                       SizedBox(
                           width: width(context, 0.3),
-                          child: customtextfield(
-                              context, "Mobile No", mobile, Icons.call))
+                          child: customtextfield(context, "Mobile No",
+                              controller.phoneNumber.value, Icons.call))
                     ],
                   ),
                 ),
@@ -74,13 +68,19 @@ class _addState extends State<add> {
                     children: [
                       SizedBox(
                         width: width(context, 0.3),
-                        child: customtextfield(context, "Location", location,
+                        child: customtextfield(
+                            context,
+                            "Location",
+                            controller.location.value,
                             Icons.location_on_outlined),
                       ),
                       SizedBox(
                           width: width(context, 0.3),
-                          child: customtextfield(context, "Disaster Type",
-                              dis_type, Icons.dynamic_form_outlined))
+                          child: customtextfield(
+                              context,
+                              "Disaster Type",
+                              controller.disasterType.value,
+                              Icons.dynamic_form_outlined))
                     ],
                   ),
                 ),
@@ -92,11 +92,11 @@ class _addState extends State<add> {
                       SizedBox(
                           width: width(context, 0.3),
                           child: customtextfield(context, "Mission Name",
-                              mission, Icons.api_sharp)),
+                              controller.missionName.value, Icons.api_sharp)),
                       SizedBox(
                           width: width(context, 0.3),
                           child: customtextfield(context, "Type of Area",
-                              loc_type, Icons.location_city))
+                              controller.areaType.value, Icons.location_city))
                     ],
                   ),
                 ),
@@ -107,16 +107,13 @@ class _addState extends State<add> {
                   child: MaterialButton(
                       color: Colors.green,
                       onPressed: () {
-                        var ref = Firestore.instance
-                            .collection('user')
-                            .document('doc');
-                        ref.create({
-                          "hello": "hello",
-                        }).whenComplete(
-                          () => Get.snackbar(
-                            "completed",
-                            "Value Inserted",
-                          ),
+                        controller.addData(
+                          controller.personName.value.text,
+                          controller.phoneNumber.value.text,
+                          controller.location.value.text,
+                          controller.disasterType.value.text,
+                          controller.missionName.value.text,
+                          controller.areaType.value.text,
                         );
                       },
                       child: const Row(

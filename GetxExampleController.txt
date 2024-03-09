@@ -1,0 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+import 'my_model.dart';
+
+class MyController extends GetxController {
+  var ref = Firestore.instance.collection('user').get().asStream().map(
+      (querySnapshot) =>
+          querySnapshot.map((doc) => MyModel.fromJson(doc.map)).toList());
+
+  Future<void> addMyModel(MyModel model) async {
+    final docRef =
+        FirebaseFirestore.instance.collection('myCollection').doc();
+    await docRef.set(model.toJson());
+  }
+}

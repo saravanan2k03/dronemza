@@ -161,11 +161,15 @@ class _RequestPageState extends State<RequestPage> {
                                           "Status               :  in Progress",
                                           style:
                                               TextStyle(color: Colors.white)),
-                                      const SizedBox(height: 20),
+                                      const SizedBox(height: 10),
+                                      const Text("Disaster Type    :  Rescue",
+                                          style:
+                                              TextStyle(color: Colors.white)),
+                                      const SizedBox(height: 25),
                                       MaterialButton(
                                           color: Colors.green,
                                           onPressed: () {},
-                                          child: const Text("View Details",
+                                          child: const Text("Accept",
                                               style: TextStyle(
                                                   color: Colors.white))),
                                     ]),

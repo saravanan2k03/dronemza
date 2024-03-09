@@ -2,7 +2,6 @@ import 'package:drone/views/constant/const.dart';
 import 'package:drone/views/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../controller/AuthController.dart';
 
 class RegistrationPage extends StatefulWidget {
