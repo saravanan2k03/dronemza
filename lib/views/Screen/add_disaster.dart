@@ -106,7 +106,7 @@ class _addState extends State<add> {
                   width: width(context, 0.1),
                   child: MaterialButton(
                       color: Colors.green,
-                      onPressed: () {
+                      onPressed: () async {
                         controller.addData(
                           controller.personName.value.text,
                           controller.phoneNumber.value.text,

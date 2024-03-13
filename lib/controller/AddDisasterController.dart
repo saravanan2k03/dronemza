@@ -1,6 +1,5 @@
 import 'package:drone/views/constant/const.dart';
 import 'package:firedart/firedart.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
@@ -42,10 +41,6 @@ class AddDisasterController extends GetxController {
         backgroundColor: Colors.white54,
         snackPosition: SnackPosition.BOTTOM,
       );
-
-      if (kDebugMode) {
-        print('successful: ');
-      }
     }).catchError((error) {
       Get.snackbar(
         'Info',
@@ -53,9 +48,6 @@ class AddDisasterController extends GetxController {
         backgroundColor: Colors.white54,
         snackPosition: SnackPosition.BOTTOM,
       );
-      if (kDebugMode) {
-        print('failed: $error');
-      }
     });
   }
 
