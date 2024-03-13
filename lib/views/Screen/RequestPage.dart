@@ -1,5 +1,8 @@
+import 'package:drone/controller/RequestPageController.dart';
 import 'package:drone/views/constant/const.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 
 import '../widgets/container.dart';
 import '../widgets/textfield.dart';
@@ -14,6 +17,12 @@ class RequestPage extends StatefulWidget {
 class _RequestPageState extends State<RequestPage> {
   final search = TextEditingController();
   String selectedValue = '';
+  final RequestPageController controller = Get.put(RequestPageController());
+  @override
+  void initState() {
+    controller.getData();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -126,72 +135,99 @@ class _RequestPageState extends State<RequestPage> {
               color: const Color.fromARGB(255, 0, 0, 0),
               height: height(context, 0.76),
               width: width(context, 0.9),
-              child: GridView.builder(
-                  itemCount: 6,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, childAspectRatio: 1.5),
-                  itemBuilder: (BuildContext context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: customcontainer(
-                          color: const Color.fromARGB(255, 80, 80, 80)
-                              .withOpacity(0.3),
-                          height: height(context, 0.02),
-                          width: width(context, 0.2),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Center(
-                                child: Column(
+              child: GetX<RequestPageController>(builder: (controller) {
+                return GridView.builder(
+                    itemCount: controller.lst.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, childAspectRatio: 1.5),
+                    itemBuilder: (BuildContext context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: customcontainer(
+                            color: const Color.fromARGB(255, 80, 80, 80)
+                                .withOpacity(0.3),
+                            height: height(context, 0.02),
+                            width: width(context, 0.2),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
                                     children: [
-                                      const SizedBox(height: 10),
-                                      const Text("Mission Name  :  ANGRY BIRD",
-                                          style:
-                                              TextStyle(color: Colors.white)),
-                                      const SizedBox(height: 10),
-                                      const Text(
-                                          "Location           :  Lat 25 1047 , Lon 82.2956",
-                                          style:
-                                              TextStyle(color: Colors.white)),
-                                      const SizedBox(height: 10),
-                                      const Text(
-                                          "Status               :  in Progress",
-                                          style:
-                                              TextStyle(color: Colors.white)),
-                                      const SizedBox(height: 10),
-                                      const Text("Disaster Type    :  Rescue",
-                                          style:
-                                              TextStyle(color: Colors.white)),
+                                      customTextData(context, "Mission name ",
+                                          "${controller.lst[index]['missionName']}"),
+                                      customTextData(context, "Location ",
+                                          "${controller.lst[index]['location']}"),
+                                      customTextData(context, "Status ",
+                                          "${controller.lst[index]['Status']}"),
+                                      customTextData(context, "Disaster type",
+                                          "${controller.lst[index]['disasterType']}"),
                                       const SizedBox(height: 25),
-                                      MaterialButton(
-                                          color: Colors.green,
-                                          onPressed: () {},
-                                          child: const Text("Accept",
-                                              style: TextStyle(
-                                                  color: Colors.white))),
+                                      SizedBox(
+                                        width: width(context, 0.23),
+                                        child: MaterialButton(
+                                            color: Colors.green,
+                                            onPressed: () {
+                                              controller.getData();
+                                            },
+                                            child: const Text("Accept",
+                                                style: TextStyle(
+                                                    color: Colors.white))),
+                                      ),
                                     ]),
-                              ),
-                              // Row(
-                              //   mainAxisAlignment: MainAxisAlignment.center,
-                              //   children: [
-                              //     MaterialButton(
-                              //         color: Colors.green,
-                              //         onPressed: () {},
-                              //         child: Text("View Details",
-                              //             style:
-                              //                 TextStyle(color: Colors.white))),
-                              //   ],
-                              // )
-                            ],
-                          )),
-                    );
-                  }),
+                              ],
+                            )),
+                      );
+                    });
+              }),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  customTextData(BuildContext context, String title, String data) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: width(context, 0.10),
+            height: height(context, 0.03),
+            // color: Colors.brown,
+            child: Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white),
+            ),
+          ),
+          const Text(
+            ":",
+            style: TextStyle(
+                fontSize: 17, fontWeight: FontWeight.w500, color: Colors.white),
+          ),
+          SizedBox(
+            width: width(context, 0.003),
+          ),
+          SizedBox(
+            width: width(context, 0.10),
+            height: height(context, 0.03),
+            // color: const Color.fromARGB(255, 198, 59, 8),
+            child: Text(
+              data,
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

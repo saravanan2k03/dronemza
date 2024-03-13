@@ -32,7 +32,8 @@ class AddDisasterController extends GetxController {
       "disasterType": disasterType,
       "missionName": missionName,
       "areaType": areaType,
-      "id": id
+      "id": id,
+      "Status": "Assigned"
     }).then((value) {
       clearText();
       Get.snackbar(
